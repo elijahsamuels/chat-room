@@ -2,28 +2,41 @@
   <div class="row">
 
     <div class="col-3">
-    <p>Hello, <%= current_user.username %></p>
-      <%= render 'form', room: Room.new %>
-      <hr>
-      <% @rooms.each do |room| %>
-        <%= link_to room do %>
-          <div class="card mb-2">
-            <div class="card-body">
-              <%= room.name %>          
+      <p>Hello, <%= current_user.username %></p>
+        <%= render 'form', room: Room.new %>
+        <hr>
+        <% @rooms.each do |room| %>
+          <%= link_to room do %>
+            <div class="card mb-2">
+              <div class="card-body">
+                <%= room.name %>          
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
-      </div>
     </div>
-
+  
     <div class="col-9">
       <% if @room.present? %>
         <div class="chat-room">
-          <h2>Welcome to <%= @room.name %> </h2>
+
+          <nav class="navbar navbar-light bg-light mb-4">
+            <span class="navbar-brand" href="#"><%= @room.name %></span>
+          </nav>
+
 
             <% @room.messages.each do |message| %>
-              <p><%= message.content %> </p>
+              <div class="message mb-1 <%= 'me' if message.user == current_user %>">
+              <div class="content-container">
+                <div class="content" >
+                  <%= message.content %>
+                </div>
+                <div class="author">
+                  <%= message.user.username %>
+                </div>
+              </div>
+              
+              </div>
             <% end %>
 
           <div class="chat-box">
@@ -31,7 +44,8 @@
           </div>
         </div>
       <% end %>
-    </div>
+      </div>
 
+    </div>
   </div>
 </div>
