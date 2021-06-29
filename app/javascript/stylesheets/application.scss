@@ -37,7 +37,11 @@ body {
 		position: absolute;
 		bottom: 0;
 		padding: 20px;
-		width: calc(100% - 15px);
+		width: 100%;
+		margin-left: -15px;
+		background-color: white;
+		border-top: 1px solid #eeeeee;
+
 		input[type=text] {
 			height: 45px;
 			font-size: 18px;
