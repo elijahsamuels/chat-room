@@ -27,7 +27,8 @@ class MessagesController < ApplicationController
     
     SendMessageJob.perform_later(@message)
     
-    # redirect_to request.referrer
+    redirect_to @message.room
+    
   end    
 
   # PATCH/PUT /messages/1 or /messages/1.json
