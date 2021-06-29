@@ -8,7 +8,7 @@
 			.content {
 				background-color: #eeeeee;
 				padding: 8px 16px;
-				border-radius: 10px;
+				border-radius: 20px;
 			}
 			.author {
 				font-size: 0.8rem;
@@ -43,4 +43,37 @@
 }
 .card.no-outline {
 	border: none;
+}
+
+.room-link{	
+	&:hover{
+		text-decoration: none;
+	}
+	.room-card {
+		transition: background-color 0.25s ease;
+		border-radius: 20px;
+
+		&:hover{
+		background-color: #eeeeee;
+		border-radius: 20px;
+		}
+		&.active {
+			background-color: black;
+			.name{
+				color: white;
+			}
+			.member-count {
+				color: white;
+			}
+		}
+		.name {
+			font-weight: bold;
+			color: black;
+		}
+		.member-count {
+			font-weight: light;
+			color: #777777;
+		}
+	
+	}
 }
