@@ -9,7 +9,7 @@ class ActivityChannel < ApplicationCable::Channel
   end
 
   def appear
-    ActionCable.server.broadcast "activity_channel", message: "Yay! #{current_user.username} has joined!"
+    ActionCable.server.broadcast "activity_channel", , user_id: current_user.id, message: "Yay! #{current_user.username} has joined!"
   end
 
 end

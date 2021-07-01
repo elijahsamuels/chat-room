@@ -13,6 +13,12 @@ consumer.subscriptions.create("ActivityChannel", {
   
   received(data) {
     console.log(data.message)
+    let elements = document.getElementsByClassName(`user-${data.user_id}-status`);
+    window.elements = elements
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].classList.add('online')
+    }
+
     // Called when there's incoming data on the websocket for this channel
   }
 });
